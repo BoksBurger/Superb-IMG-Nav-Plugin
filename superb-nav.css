@@ -1,0 +1,29 @@
+.imgNav {
+    display: flex;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imgViewer {
+    background-color: black;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.hintText {
+    background-color: black;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 110%;
+    width: 480px;
+    padding: 16px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 8px;
+}
