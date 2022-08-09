@@ -2,9 +2,9 @@
 let currentImage = 0;
 Object.prototype.makeSuperb = function(options){
     options["container"] =  this.id;
-    superbNavGallery(options); 
+    superbImageNav(options); 
 }
-function superbNavGallery(options) {
+function superbImageNav(options) {
     if (options?.imgList.length > -1) {
         if (!options?.container) console.log("Please specify the container element ID");
         let container = document.getElementById(options?.container);
@@ -14,27 +14,22 @@ function superbNavGallery(options) {
         container.className = "imgNav";
         container.appendChild(viewPort);
 
-        const imageViewer = document.querySelector(".imgViewer");
-
-        imageViewer.style.width = `${options.width ? options.width : 300}px`;
-        imageViewer.style.height = `${options.height ? options.height : 300}px`;
-        imageViewer.style.borderRadius = `${options.roundCorners ? options.roundCorners : 0}px`;
-        imageViewer.style.boxShadow = `${options.dropShaddow ? "1px 1px 5px black" : "unset"}`;
+        viewPort.style.width = `${options.width ? options.width : 300}px`;
+        viewPort.style.height = `${options.height ? options.height : 300}px`;
+        viewPort.style.borderRadius = `${options.roundCorners ? options.roundCorners : 0}px`;
+        viewPort.style.boxShadow = `${options.dropShaddow ? "1px 1px 5px black" : "unset"}`;
 
         if (options.showHint) {
             hint.className = "hintText"
-            hint.innerText = options.hintText ? options.hintText : "Use the j/k or arrow keys to navigate.";
+            hint.innerText = options.hintText ? options.hintText : "Use the j/k or arrow keys to navigate between images.";
             hint.style.width = `${options.width ? options.width : 300}px`
             hint.style.borderRadius = `${options.roundCorners ? options.roundCorners : 0}px`;
             hint.style.boxShadow = `${options.dropShaddow ? "1px 1px 5px black" : "unset"}`
             container.appendChild(hint);
         }
         function updateImage(i) {
-            document.querySelector(".imgViewer").style.backgroundImage = `url(${options.imgList[i]})`
+            viewPort.style.backgroundImage = `url(${options.imgList[i]})`
         }
-
-        //Capture keyboard event
-        document.onkeydown = navigate;
 
         if (options.slideShow) {
             setInterval(() => {
@@ -42,15 +37,15 @@ function superbNavGallery(options) {
             }, options.slideShow * 1000);
         }
 
-        function navigate(e) {
-            e = e || window.event;
-            if (e.keyCode === 75 || e.keyCode === 39) {
+        //Capture keyboard event
+        document.onkeydown = (e) => {
+            if (e.key === "k" || e.key === "K" || e.key === "ArrowRight") {
                 nextImage();
-            } else if (e.keyCode === 74 || e.keyCode === 37) {
+            } else if (e.key === "j" || e.key === "J" || e.key === "ArrowLeft") {
                 previousImage();
             }
             updateImage(currentImage);
-        }
+        };
 
         function nextImage() {
             if (currentImage < options.imgList.length - 1) {
@@ -60,6 +55,7 @@ function superbNavGallery(options) {
             }
             updateImage(currentImage);
         }
+
         function previousImage() {
             if (currentImage > 0) {
                 currentImage--;
