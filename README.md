@@ -3,6 +3,8 @@ This is the completed version of an image navigation plugin I created for a codi
 
 In this version, I fixed the navigation bug, added more options and extended the Object prototype with a "makeSuperb" method to apply the plugin to any container.
 
+<a href="https://codepen.io/boksburger/pen/rNdKXbb" title="Working example on CodePen" target="_blank">View the working example on CodePen</a>
+
 ### Options are as follow:
 ```
 showHint: Boolean - Descide whether to display of instructions. Default false;
