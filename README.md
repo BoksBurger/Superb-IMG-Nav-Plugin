@@ -1,7 +1,7 @@
 # Superb-IMG-Nav-Plugin
 This is the completed version of an image navigation plugin I created for a coding interview on HackerRank.
 
-In this version, I fixed the navigation bug, added more options and extended the Object prototype with a "makeSuperb" method to apply the plugin to any container.
+In this version, I fixed a navigation related bug, added more options and extended the "Object" prototype with a "makeSuperb" method to allow the plugin to be applied to an container element.
 
 <a href="https://codepen.io/boksburger/pen/rNdKXbb" title="Working example on CodePen" target="_blank">View the working example on CodePen</a>
 
