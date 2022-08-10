@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .imgNav {
     display: flex;
     height: 100vh;

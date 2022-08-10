@@ -15,10 +15,15 @@ Object.prototype.makeSuperb = function (options) {
     this.className = "imgNav";
     image.className = "imgViewer";
 
-    image.style.width = width;
-    image.style.height = height;
-    image.style.borderRadius = radius;
-    image.style.boxShadow = shaddow;
+    if (!options.fullScreen) {
+      image.style.width = width;
+      image.style.height = height;
+      image.style.borderRadius = radius;
+      image.style.boxShadow = shaddow;
+    } else {
+      image.style.width = "100%";
+      image.style.height = "100vh";
+    }
     this.appendChild(image);
 
     if (options.showHint) {
@@ -28,6 +33,10 @@ Object.prototype.makeSuperb = function (options) {
       hint.style.width = width;
       hint.style.borderRadius = radius;
       hint.style.boxShadow = shaddow;
+      if (options.fullScreen) {
+        hint.style.position = "absolute";
+        hint.style.bottom = "0";
+      }
       this.appendChild(hint);
     }
 
