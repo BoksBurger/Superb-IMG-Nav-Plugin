@@ -9,7 +9,7 @@ In this version, I fixed a navigation related bug, added more options and extend
 ```
 showHint: Boolean - Descide whether to display of instructions. Default false;
 hintText: String - Custom instruction / hint text
-loopImages: Boolean - Depending on the direction we returns to the first / last image when the end is reached.
+loopImages: Boolean - Depending on the direction we return to the first / last image when the end is reached.
 width: Integer - Custom width option. Default | 300
 height: Integer - Custom height option. Default | 300
 roundCorners: Integer - Adds a rounded corner to the interface. Default | 0.
