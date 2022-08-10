@@ -1,36 +1,34 @@
 //**** This is the plugin part ****//
 let currentImage = 0;
 Object.prototype.makeSuperb = function (options) {
-  options["container"] = this.id;
   if (!Array.isArray(options.imgList))
     throw new Error("Please specify a String[] of image URLs");
 
   if (options.imgList.length > 0) {
-    let container = document.getElementById(options?.container);
     let image = document.createElement("div");
-    let hint = document.createElement("div");
     let width = `${options.width ? options.width : 300}px`;
     let height = `${options.height ? options.height : 300}px`;
     let radius = `${options.roundCorners ? options.roundCorners : 0}px`;
     let shaddow = `${options.dropShaddow ? "1px 1px 5px black" : "unset"}`;
     let hintText = "Use the j/k or arrow keys to navigate between images.";
 
-    container.className = "imgNav";
+    this.className = "imgNav";
     image.className = "imgViewer";
 
     image.style.width = width;
     image.style.height = height;
     image.style.borderRadius = radius;
     image.style.boxShadow = shaddow;
-    container.appendChild(image);
+    this.appendChild(image);
 
     if (options.showHint) {
+      let hint = document.createElement("div");
       hint.className = "hintText";
       hint.innerText = options.hintText ? options.hintText : hintText;
       hint.style.width = width;
       hint.style.borderRadius = radius;
       hint.style.boxShadow = shaddow;
-      container.appendChild(hint);
+      this.appendChild(hint);
     }
 
     if (options.slideShow) {
